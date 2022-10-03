@@ -20,7 +20,7 @@ router.post('/', withAuth, async (req, res) => {
 //     const commentData = await Note.destroy({
 //       where: {
 //         id: req.params.id,
-//         user_id: req.session.user_id,
+//         user_id: req.session.user_id, //! Should this be user_id or note_id ??
 //       },
 //     });
 
