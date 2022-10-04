@@ -1,8 +1,44 @@
-<div class="text-center">
-  <h2>{{note.title}}</h2>
-  <p>{{note.description}}</p>
-  <p>Created by {{user.username}} on {{format_date date_created}}</p>
-  <p>
-    <button class="btn btn-primary">BIG BUTTON</button>
-  </p>
+<div class="row">
+  <div class="col-auto">
+    <h2>Welcome, {{username}}!</h2>
+  </div>
 </div>
+
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h3>Create a Blog Post:</h3>
+
+    <form class="form new-note-form">
+      <div class="form-group">
+        <label for="note-name">Title:</label>
+        <input class="form-input" type="text" id="note-name" name="note-name" />
+      </div>
+      <div class="form-group">
+        <label for="note-desc">description:</label>
+        <textarea class="form-input" id="note-desc" name="note-desc"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">POST</button>
+      </div>
+    </form>
+  </div>
+
+  {{#if notes.length}}
+  <div class="col-md-6 note-list">
+    <h3>Current Notes:</h3>
+
+    {{#each notes as |note|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/note/{{note.id}}">{{note.name}}</a></h4>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{note.id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>
+
+<script src="./js/profile.js"></script>

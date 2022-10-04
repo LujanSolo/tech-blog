@@ -2,6 +2,7 @@
 {{#each notes as |note| }}
 <div class="row mb-4 note">
   <div class="col">
+    <h2><a href="/note/{{note.id}}">{{note.title}}</a>
     <p>
       {{note.description}}
     </p>
