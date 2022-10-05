@@ -5,7 +5,7 @@ const newFormHandler = async (event) => {
   const description = document.querySelector('#note-desc').value.trim();
 
   if (name && description) {
-    const response = await fetch(`/api/noteRoutes`, {
+    const response = await fetch(`/api/notes`, {
       method: 'POST',
       body: JSON.stringify({ name, description }),
       headers: {
@@ -22,17 +22,17 @@ const newFormHandler = async (event) => {
 };
 
 const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute('data-id')) {
-    const id = event.target.getAttribute('data-id');
+  if (event.target.hasAttribute('note-id')) {
+    const id = event.target.getAttribute('note-id');
 
-    const response = await fetch(`/api/notes/${id}`, {
+    const response = await fetch(`/notes/${id}`, {
       method: 'DELETE',
     });
 
     if (response.ok) {
       document.location.replace('/profile');
     } else {
-      alert('Failed to delete note');
+      alert('Failed to delete post');
     }
   }
 };

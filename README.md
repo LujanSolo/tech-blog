@@ -4,18 +4,21 @@
 HOMEPAGE - existing BLOG posts (if any); NAVIGATION LINKS to HOMEPAGE and DASHBOARD, and LOGIN
 
 HOMEPAGE goes to HOMEPAGE, any other link REQUIRES LOGIN or SIGNUP w/ username and password (CREDENTIALS SAVED)
+<!-- create withAuth redirect -->
 
 LOGOUT option shows when logged in
 
 HOMEPAGE has POSTS with post TITLE and DATE CREATED
 
-THEN I am prompted to create a username and password
-WHEN I click on the sign-up button
+
 THEN my user credentials are saved and I am logged into the site
 WHEN I revisit the site at a later time and choose to sign in
+<!-- set TIMEOUT on cookies -->
+
 THEN I am prompted to enter my username and password
 WHEN I am signed in to the site
 THEN I see navigation links for the homepage, the dashboard, and the option to log out
+
 WHEN I click on the homepage option in the navigation
 THEN I am taken to the homepage and presented with existing blog posts that include the post title and the date created
 

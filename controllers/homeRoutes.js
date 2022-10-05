@@ -40,7 +40,7 @@ router.get('/note/:id', async (req, res) => {
 
     const note = notesData.get({ plain: true });
 
-    res.render('note', {
+    res.render('/notes', {
       ...note,
       logged_in: req.session.logged_in
     });
