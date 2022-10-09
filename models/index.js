@@ -1,15 +1,15 @@
 const User = require('./User');
-const Note = require('./Note');
+const Post = require('./Blogpost');
 const Comment = require('./Comment');
 
 //*relationship 1-1, 1-many, many-many
-User.hasMany(Note, {
+User.hasMany(Post, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE'
 });
 
 //* association (linking)
-Note.belongsTo(User, {
+Post.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
@@ -22,8 +22,8 @@ Comment.belongsTo(User, {
   foreignKey: 'user_id',
 });
 
-Comment.belongsTo(Note, {
-  foreignKey: 'note_id',
+Comment.belongsTo(Post, {
+  foreignKey: 'post_id',
 });
 
-module.exports = { User, Note, Comment };
+module.exports = { User, Post, Comment };
