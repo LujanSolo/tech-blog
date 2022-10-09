@@ -1,20 +1,20 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector('#note-name').value.trim();
+  const title = document.querySelector('#note-name').value.trim();
   const description = document.querySelector('#note-desc').value.trim();
 
-  if (name && description) {
+  if (title && description) {
     const response = await fetch(`/api/notes`, {
       method: 'POST',
-      body: JSON.stringify({ name, description }),
+      body: JSON.stringify({ title, description }),
       headers: {
         'Content-Type': 'application/json',
       },
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/api/dashboard');
     } else {
       alert('Failed to create note');
     }
@@ -22,8 +22,8 @@ const newFormHandler = async (event) => {
 };
 
 const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute('data-id')) {
-    const id = event.target.getAttribute('data-id');
+  if (event.target.hasAttribute('note-id')) {
+    const id = event.target.getAttribute('note-id');
 
     const response = await fetch(`/api/notes/${id}`, {
       method: 'DELETE',
@@ -32,7 +32,7 @@ const delButtonHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/profile');
     } else {
-      alert('Failed to delete note');
+      alert('Failed to delete post');
     }
   }
 };

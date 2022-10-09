@@ -23,7 +23,11 @@ const seedDatabase = async () => {
     });
 
     //* extracting keynames from an object and creating a new object (by wrapping [])
-    await Comment.create({ ...commentData[i], user_id: users[Math.floor(Math.random() * users.length)].id, note_id: newNote.id}),
+    await Comment.create({
+        ...commentData[i], 
+        user_id: users[Math.floor(Math.random() * users.length)].id, 
+        note_id: newNote.id
+    }),
       i++
   }
 

@@ -1,3 +1,4 @@
+// required dependencies 
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
@@ -8,6 +9,7 @@ const helpers = require('./utils/helpers');
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
+// Sets up Express Spp
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -26,7 +28,7 @@ const sess = {
 
 app.use(session(sess));
 
-// Inform Express.js on which template engine to use
+// Inform Express.js of which template engine to use
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
@@ -36,6 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
+// Start the sequelize-instanced server
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
