@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-auto">
-    <h2>Welcome, {{username}}!</h2>
+    <h2>Welcome, {{user}}!</h2>
   </div>
 </div>
 
@@ -22,10 +22,10 @@
       </div>
     </form>
   </div>
-
+{{!-- these have to be notes belonging to the logged in user, not all notes --}}
   {{#if notes.length}}
   <div class="col-md-6 note-list">
-    <h3>Current Notes:</h3>
+    <h3>My Posts:</h3>
 
     {{#each notes as |note|}}
     <div class="row mb-2">

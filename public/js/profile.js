@@ -1,13 +1,13 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector('#note-name').value.trim();
+  const title = document.querySelector('#note-name').value.trim();
   const description = document.querySelector('#note-desc').value.trim();
 
-  if (name && description) {
+  if (title && description) {
     const response = await fetch(`/api/notes`, {
       method: 'POST',
-      body: JSON.stringify({ name, description }),
+      body: JSON.stringify({ title, description }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -25,7 +25,7 @@ const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('note-id')) {
     const id = event.target.getAttribute('note-id');
 
-    const response = await fetch(`/notes/${id}`, {
+    const response = await fetch(`/api/notes/${id}`, {
       method: 'DELETE',
     });
 

@@ -3,7 +3,7 @@ const { Note, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 
-router.get('/', async (req, res) => {
+router.get('/dashboard', withAuth,async (req, res) => {
   try {
     // Get all notes and JOIN with user data
     const notesData = await Note.findAll({
