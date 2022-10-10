@@ -1,5 +1,5 @@
 const User = require('./User');
-const Post = require('./Blogpost');
+const Post = require('./Post');
 const Comment = require('./Comment');
 
 //*relationship 1-1, 1-many, many-many
@@ -23,7 +23,7 @@ Comment.belongsTo(User, {
 });
 
 Comment.belongsTo(Post, {
-  foreignKey: 'blogpost_id',
+  foreignKey: 'post_id',
 });
 
 module.exports = { User, Post, Comment };

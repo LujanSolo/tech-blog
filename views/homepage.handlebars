@@ -1,12 +1,12 @@
 <!-- Loop over each object in the notes array -->
-{{#each notes as |note| }}
+{{#each blogposts as |blog| }}
 <div class="row mb-4 note">
   <div class="col">
-    <h2><a href="/note/{{note.id}}">{{note.title}}</a>
+    <h2><a href="/blogpost/{{blogpost.id}}">{{blogpost.title}}</a>
     <p>
-      {{note.description}}
+      {{blogpost.content}}
     </p>
-    <p>Created by {{user.name}} on {{format_date note.date_created}}</p>
+    <p>Created by {{user.name}} on {{format_date blogpost.date_created}}</p>
   </div>
 </div>
 {{/each}}
