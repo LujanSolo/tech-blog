@@ -1,31 +1,31 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
 
-  const title = document.querySelector('#note-name').value.trim();
-  const description = document.querySelector('#note-desc').value.trim();
+  const title = document.querySelector('#post-title').value.trim();
+  const content = document.querySelector('#post-content').value.trim();
 
-  if (title && description) {
-    const response = await fetch(`/api/notes`, {
+  if (title && content) {
+    const response = await fetch(`/api/posts`, {
       method: 'POST',
-      body: JSON.stringify({ title, description }),
+      body: JSON.stringify({ title, content }),
       headers: {
         'Content-Type': 'application/json',
       },
     });
 
     if (response.ok) {
-      document.location.replace('/api/dashboard');
+      document.location.replace('/');
     } else {
-      alert('Failed to create note');
+      alert('Failed to create post');
     }
   }
 };
 
 const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute('note-id')) {
-    const id = event.target.getAttribute('note-id');
+  if (event.target.hasAttribute('data-id')) {
+    const id = event.target.getAttribute('data-id');
 
-    const response = await fetch(`/api/notes/${id}`, {
+    const response = await fetch(`/api/posts/${id}`, {
       method: 'DELETE',
     });
 
@@ -38,9 +38,9 @@ const delButtonHandler = async (event) => {
 };
 
 document
-  .querySelector('.new-note-form')
+  .querySelector('.new-post-form')
   .addEventListener('submit', newFormHandler);
 
 document
-  .querySelector('.note-list')
+  .querySelector('.post-list')
   .addEventListener('click', delButtonHandler);
