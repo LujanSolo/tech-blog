@@ -4,13 +4,13 @@ const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
   try {
-    const newBlogData = await Post.create({
+    const newPostData = await Post.create({
       title: req.body.title,
       content: req.body.content,
       date_created: req.body.date_created,
     });
 
-    res.status(200).json(newBlogData);
+    res.status(200).json(newPostData);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -18,7 +18,7 @@ router.post('/', withAuth, async (req, res) => {
 
 router.put('/:id', withAuth, async (req, res) => {
   try {
-    const blog = await Post.update(
+    const post = await Post.update(
       {
         title: req.body.title,
         content: req.body.content,
@@ -29,7 +29,7 @@ router.put('/:id', withAuth, async (req, res) => {
         },
       }
     );
-    res.status(200).json(blog);
+    res.status(200).json(post);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -37,19 +37,19 @@ router.put('/:id', withAuth, async (req, res) => {
 
 router.delete('/:id', withAuth, async (req,res) => {
   try {
-    const blogData = await Post.destroy({
+    const postData = await Post.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       }
     });
     
-    if (!blogData) {
+    if (!postData) {
       res.status(404).json({ message: 'No post found with this ID.' });
       return;
     }
 
-    res.status(200).json(blogData);
+    res.status(200).json(postData);
   } catch (err) {
     res.status(500).json(err);
   }
