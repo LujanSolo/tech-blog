@@ -2,12 +2,12 @@ const router = require('express').Router();
 const { Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// localhost:3001/api/posts
 router.post('/', withAuth, async (req, res) => {
   try {
     const newPostData = await Post.create({
-      title: req.body.title,
-      content: req.body.content,
-      date_created: req.body.date_created,
+      ...req.body,
+      user_id: req.session.user_id,
     });
 
     res.status(200).json(newPostData);
@@ -16,7 +16,20 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-router.put('/:id', withAuth, async (req, res) => {
+// router.post('/', withAuth, async (req, res) => {
+//   try {
+//     const newProject = await Project.create({
+//       ...req.body,
+//       user_id: req.session.user_id,
+//     });
+
+//     res.status(200).json(newProject);
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
+
+router.put('/posts/:id', withAuth, async (req, res) => {
   try {
     const post = await Post.update(
       {
@@ -35,7 +48,7 @@ router.put('/:id', withAuth, async (req, res) => {
   }
 });
 
-router.delete('/:id', withAuth, async (req,res) => {
+router.delete('/posts/:id', withAuth, async (req,res) => {
   try {
     const postData = await Post.destroy({
       where: {
