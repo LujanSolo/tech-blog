@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
+// GET route to Homepage and find all blogposts, then render them to the homepage
 router.get('/', async (req, res) => {
   try {
     const postData = await Post.findAll({
@@ -46,7 +47,7 @@ router.get('/posts/:id', withAuth, async (req, res) => {
   }
 });
 
-// //  withAuth middleware to prevent access to route
+//  withAuth middleware to prevent access to route
 // router.get('/posts', withAuth, async (req, res) => {
 //   try {
 //     // Find the logged in user based on the session ID

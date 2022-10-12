@@ -4,7 +4,7 @@ const editPostHandler = async (event) => {
   const title = document.querySelector('#post-title').value.trim();
   const content = document.querySelector('#post-content').value.trim();
 
-  const response = await fetch(`/posts/${id}`, {
+  const response = await fetch(`/api/posts/${id}`, {
     method: 'PUT',
     body: JSON.stringify({
       title,
@@ -14,6 +14,12 @@ const editPostHandler = async (event) => {
       'Content-Type': 'application/json',
     }
   });
+
+  if (response.ok) {
+    document.location.replace('/dashboard');
+  } else {
+    alert('Failed to updtate post');
+  }
 };
 
 const delButtonHandler = async (event) => {
@@ -36,6 +42,6 @@ document
   .querySelector('.edit-post-form')
   .addEventListener('submit', editPostHandler);
 
-  document
-    .querySelector('.edit-post-form')
-    .addEventListener('click', delButtonHandler);
+document
+  .querySelector('.edit-post-form')
+  .addEventListener('click', delButtonHandler);
