@@ -88,6 +88,16 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
+router.get('/newpost', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  if (!req.session.logged_in) {
+    res.redirect('/login');
+    return;
+  }
+
+  res.render('newpost');
+});
+
 router.get('/dashboard', async (req, res) => {
   try {
     const postData = await Post.findAll({
@@ -111,5 +121,7 @@ router.get('/dashboard', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
 
 module.exports = router;
