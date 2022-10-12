@@ -43,5 +43,5 @@ document
   .addEventListener('submit', editPostHandler);
 
 document
-  .querySelector('.edit-post-form')
+  .querySelector('#delete-btn')
   .addEventListener('click', delButtonHandler);
