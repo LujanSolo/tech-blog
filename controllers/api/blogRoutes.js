@@ -16,7 +16,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-router.put('/posts/:id', withAuth, async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
   try {
     const post = await Post.update(
       {
@@ -35,31 +35,7 @@ router.put('/posts/:id', withAuth, async (req, res) => {
   }
 });
 
-router.put('/posts/:id', withAuth, async (req, res) => {
-  // Where is this action method sending the data from the body of the fetch request? Why?
-  // It is sending the data to the Model so that one dish can be updated with new data in the database.
-  try {
-    const post = await Post.update(
-      {
-        title: req.body.title,
-        content: req.body.content,
-      },
-      {
-        where: {
-          id: req.params.id,
-          user_id: req.session.user_id,
-        },
-      }
-    );
-    // If the database is updated successfully, what happens to the updated data below?
-    // The updated data (dish) is then sent back to handler that dispatched the fetch request.
-    res.status(200).json(dish);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.delete('/posts/:id', withAuth, async (req,res) => {
+router.delete('/:id', withAuth, async (req,res) => {
   try {
     const postData = await Post.destroy({
       where: {

@@ -1,19 +1,19 @@
 <div class="edit-post-container">
   <h2>EDIT POST</h2>
   <form class="edit-post-form">
-    <label for="post_title">
+    <label for="post-title">
       Title:
     </label>
     <br />
-    <textarea id="post_title" contenteditable="true" name="post_title" rows="2" cols="30">
+    <textarea id="post-title" contenteditable="true" name="post-title" rows="1" cols="75">
       {{title}}
     </textarea>
     <br />
-    <label for="content">
+    <label for="post-content">
       Content:
     </label>
     <br />
-    <textarea id="content" name="content" rows="5" cols="30">
+    <textarea id="post-content" name="post-content" rows="5" cols="75">
       {{content}}
     </textarea>
     <br />
@@ -24,4 +24,4 @@
   </form>
 </div>
 
-<script src="../public/js/dashboard.js"></script>
+<script src="/js/editpost.js"></script>
