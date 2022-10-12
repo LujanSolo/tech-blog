@@ -1,9 +1,11 @@
 const editPostHandler = async (event) => {
   event.preventDefault();
-
+  console.log('you made it')
   const title = document.querySelector('#post-title').value.trim();
   const content = document.querySelector('#post-content').value.trim();
-
+  const id = event.target.getAttribute('data-update');
+console.log(event.target)
+  console.log(title,content,id)
   const response = await fetch(`/api/posts/${id}`, {
     method: 'PUT',
     body: JSON.stringify({
@@ -39,8 +41,8 @@ const delButtonHandler = async (event) => {
 };
 
 document
-  .querySelector('.edit-post-form')
-  .addEventListener('submit', editPostHandler);
+  .querySelector('#editPostBtn')
+  .addEventListener('click', editPostHandler);
 
 document
   .querySelector('#delete-btn')
