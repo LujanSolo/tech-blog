@@ -3,6 +3,7 @@ const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 // GET route to Homepage and find all blogposts, then render them to the homepage
+//* route = http:localhost:3001/
 router.get('/', async (req, res) => {
   try {
     const postData = await Post.findAll({
@@ -25,80 +26,9 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/posts/:id', withAuth, async (req, res) => {
-  try {
-    const postData = await Post.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['username'],
-        }
-      ]
-    });
-
-    const post = postData.get({ plain: true });
-
-    res.render('post', {
-      ...post,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-//  withAuth middleware to prevent access to route
-router.get('/posts', withAuth, async (req, res) => {
-  try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
-    });
-
-    const user = userData.get({ plain: true });
-
-    res.render('posts', {
-      ...user,
-      logged_in: true
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  if (req.session.logged_in) {
-    res.redirect('/');
-    return;
-  }
-
-  res.render('login');
-});
-
-// add another route to rendersignup page
-router.get('/signup', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  if (req.session.logged_in) {
-    res.redirect('/');
-    return;
-  }
-
-  res.render('signup');
-});
-
-router.get('/newpost', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  if (!req.session.logged_in) {
-    res.redirect('/login');
-    return;
-  }
-
-  res.render('newpost');
-});
-
-router.get('/dashboard', async (req, res) => {
+// GET route to render dashboard page with all of the logged in user's posts
+//* route = http:localhost:3001/dashboard
+router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const postData = await Post.findAll({
       where: { user_id: req.session.user_id },
@@ -120,6 +50,92 @@ router.get('/dashboard', async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+});
+
+// GET Route to specific posts tagged with a unique ID
+//* route = http:localhost:3001/posts/:id (e.g. //* route = http:localhost:3001/posts/1)
+router.get('/comments/:id', withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        }
+      ]
+    });
+
+    const post = postData.get({ plain: true });
+
+    res.render('publicpost', {
+      ...post,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//  GET all blogposts that belong to a specific user withAuth middleware to prevent access to route
+//* route = http:localhost:3001/posts
+router.get('/posts/:id', withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        }
+      ]
+    });
+
+    const post = postData.get({ plain: true });
+
+    res.render('userpost', {
+      ...post,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// GET to render Login route
+//* route = http:localhost:3001/login
+router.get('/login', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('login');
+});
+
+// GET route to render signup page
+//* route = http:localhost:3001/signup
+router.get('/signup', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('signup');
+});
+
+// GET route to render the Newpost page
+//* route = http:localhost:3001/newpost
+router.get('/newpost', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  //! Don't need this here, as it only goes on the dashboard (logged in) page
+  //* so, what goes here instead? 
+  if (!req.session.logged_in) {
+    res.redirect('/login');
+    return;
+  }
+
+  res.render('newpost');
 });
 
 

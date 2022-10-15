@@ -21,7 +21,9 @@ const newPostHandler = async (event) => {
   }
 };
 
-
+const newCommentHandler = async (e) => {
+  e.preventDefault();
+}
 
 document
   .querySelector('.new-post-form')
