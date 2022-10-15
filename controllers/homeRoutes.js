@@ -52,8 +52,8 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
-// GET Route to specific posts tagged with a unique ID
-//* route = http:localhost:3001/posts/:id (e.g. //* route = http:localhost:3001/posts/1)
+// GET Route to homepage posts tagged with a unique ID
+//* route = http:localhost:3001/comments/:id (e.g. //* route = http:localhost:3001/comments/1)
 router.get('/comments/:id', withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
