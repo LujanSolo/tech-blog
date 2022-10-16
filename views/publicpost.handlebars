@@ -1,4 +1,4 @@
-<div class="edit-post-container">
+<div class="post-container">
   <div class="post-form">
     <label for="post-title">
       Title:
@@ -17,29 +17,34 @@
     </div>
     <br />
     <br />
-    {{log comments}}
+    {{!-- {{log comments}} --}}
     {{#if comments.length}}
-    <div class="col-md-6 comment-list">
+    <div id="comments-div" class="col-md-6 comment-list">
       {{#each comments as |comment|}}
       <div class="row mb-2">
-        <p>{{comment.text}}</p>
+        <p>{{comment.comment}}</p>
       </div>
       {{/each}}
     </div>
     {{/if}}
   </div>
+</div>
 
-  <div class="row mt-4">
-    <div class="col-md-6">
-      <h3>Add a comment:</h3>
 
-      <form class="form comment-form">
-        <div class="form-group">
-          <textarea class="form-input" id="comment-content" name="comment-content"></textarea>
-        </div>
-        <div class="form-group">
-          <button id="comment-btn" class="btn btn-primary" data-comment="{{id}}">Add Comment</button>
-        </div>
-      </form>
+  <!-- This is the form for adding a new dish -->
+  <div class="add-comment-container">
+    <form class="new-comment-form">
+      <br />
+      <textarea id="comment" name="comment" rows="2" cols="30">
+      {{comment}}
+    </textarea>
+      <br />
+      <br />
+      <button id="add-comment" type="submit" value="Submit">
+        + COMMENT
+      </button>
+    </form>
+  </div>
+</div>
 
-      <script src="/js/addcomment.js"></script>
+    <script src="/js/addcomment.js"></script>
