@@ -8,13 +8,13 @@ const handleCommentCreate = async(event) => {
   const comment = document.querySelector('textarea[name="comment"]').value;
   console.log(comment)
   if (comment) {
-    const response = await fetch(`/comments/`, {
+    const response = await fetch(`/api/comments/`, {
       method: 'POST',
       body: JSON.stringify({ 'comment': comment, 'post_id': postID }),
       headers: { 'Content-Type': 'application/json' },
     });
     if (response.ok) {
-      document.location.replace(`/comments/`);
+      document.location.replace(`/comments/${postID}`);
     } else {
       alert('Failed to add comment');
     }

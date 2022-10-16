@@ -85,6 +85,10 @@ router.get('/comments/:id', withAuth, async (req, res) => {
         {
           model: User,
           attributes: ['username'],
+        },
+        {
+          model: Comment,
+          attributes: ['comment']
         }
       ]
     });
@@ -92,21 +96,9 @@ router.get('/comments/:id', withAuth, async (req, res) => {
     const post = postData.get({ plain: true });
 
     if (post) {
-      const commentData = await Comment.findAll({
-        where: { post_id: req.params.id },
-        include: [{ model: User, attributes: ["username"] }],
-      });
-
-
-      const comments = commentData.map((comment) =>
-        comment.get({ plain: true })
-      );
-
-      const data = { post, comments };
-
+console.log(post)
       res.render('publicpost', {
         ...post,
-        data,
         logged_in: req.session.logged_in
       });
     } else {
