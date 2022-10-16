@@ -1,3 +1,84 @@
+/* Set my font-sizing so rem1=10px for easier calculation */
+html {
+  font-size: 62.5%;
+}
+
+.body-container {
+  background-color :rgb(209, 245, 253);
+}
+
+/* *NAVBAR SECTION* */
+#nav-container {
+  display: block;
+  background-color: rgb(98, 0, 184);
+  padding: 2%;
+}
+.navbar, .nav-link {
+  color: white;
+}
+#active-link {
+  color:white;
+}
+.page-title {
+  padding: 2rem;
+  margin-left: 1.2rem;
+}
+
+
+/* *HOMEPAGE POSTS* */
+.post-container {
+  border-style: solid;
+  border-color:rgb(98, 0, 184);
+  margin-bottom: 1.5rem;
+}
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  height: 3rem;
+  line-height: 3rem;
+  background-color: rgb(98, 0, 184);
+}
+.post-title {
+  text-align: left;
+  color:rgb(209, 245, 253);
+  text-decoration: none;
+  height: 3rem;
+  line-height: 3rem;
+}
+.post-author {
+  color:rgb(209, 245, 253);
+  text-align: right;
+  height: 3rem;
+  line-height: 3rem;
+}
+.post-content {
+  padding-top: .5rem;
+  display: flex;
+  text-align: justify;
+  color:rgb(98, 0, 184);
+  font-size: 1.6rem;
+}
+
+
+/* *DASHBOARD* */
+.dash-post,
+.dash-title,
+.dash-date {
+  display: flex;
+  justify-content: space-between;
+  height: 3rem;
+  line-height: 3rem;
+  background-color: gray;
+  color: white;
+}
+
+
+/* *BUTTONS* */
+#signup-btn,
+#login-btn {
+  color: white;
+}
+
 .no-button {
   background: none;
   border: none;
@@ -9,7 +90,7 @@
 }
 
 .no-button:hover {
-  color: #065b83;
+  color: #832306;
   text-decoration: underline;
 }
 

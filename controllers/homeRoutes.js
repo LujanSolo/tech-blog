@@ -109,8 +109,8 @@ console.log(post)
   }
 });
 
-
 //  GET all blogposts that belong to a specific user withAuth middleware to prevent access to route
+//  This is where the user can Update and Delete their posts
 //* route = http:localhost:3001/posts
 router.get('/posts/:id', withAuth, async (req, res) => {
   try {
@@ -134,8 +134,6 @@ router.get('/posts/:id', withAuth, async (req, res) => {
   }
 });
 
-
-
 // GET route to render the Newpost page
 //* route = http:localhost:3001/newpost
 router.get('/newpost', (req, res) => {
@@ -149,7 +147,5 @@ router.get('/newpost', (req, res) => {
 
   res.render('newpost');
 });
-
-
 
 module.exports = router;

@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-auto">
+  <div id="user-welcome" class="col-auto">
     <h2>Welcome, {{username}}!</h2>
   </div>
 </div>
@@ -10,8 +10,9 @@
 
   {{#each posts as |post|}}
   <div class="row mb-2">
-    <div class="col-md-8">
-      <h4><a href="/posts/{{id}}">{{post.title}}</a></h4>
+    <div class="dash-post col-md-8">
+      <a class="dash-title" href="/posts/{{id}}">{{post.title}}</a>
+      <p class="dash-date">{{format_date post.date_created}}</p>
     </div>
   </div>
   {{/each}}

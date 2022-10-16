@@ -7,56 +7,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
   <link rel="stylesheet" href="./css/jass.css">
   <link rel="stylesheet" href="./css/style.css">
   <title>The Tech-Blog</title>
 </head>
-<header>
-  <nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
-      <div class="navbar" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/dashboard">Dashboard</a>
-          </li>
-          <!-- Conditionally render login or logout links -->
-          {{#if logged_in}}
-          <button class="no-button" id="logout">logout</button>
-          {{else}}
-          <li class="nav-item"><a class="nav-link" href="../login">Log In</a></li>
-          {{!-- <li class="nav-item"><a class="nav-link" href="/login">Sign Up</a></li> --}}
-          {{/if}}
-        </ul>
+<main>
+  <header>
+    <nav id="nav-container" class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <div class="navbar" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a id="active-link" class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/dashboard">Dashboard</a>
+            </li>
+            <!-- Conditionally render login or logout links -->
+            {{#if logged_in}}
+            <button class="no-button" id="logout">logout</button>
+            {{else}}
+            <li class="nav-item"><a class="nav-link" href="../login">Log In</a></li>
+            {{/if}}
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
-</header>
+      <div class="page-title">
+        <h1>💻 The Tech-Blog</h1>
+      </div>
+    </nav>
+  </header>
 
-<body>
-  <div class="flex-column justify-space-around">
-    <h1>💻 The Tech-Blog</h1>
-    <main class="container container-fluid mt-5">
+  <body class="body-container">
+    <div class="flex-column justify-space-around p-5">
       <!-- Render the sub layout -->
       {{{ body }}}
-    </main>
-    <footer>
+      <footer>
 
-    </footer>
-  </div>
+      </footer>
+    </div>
 
-  <!-- Render script for logged in users only -->
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
-
+    <!-- Render script for logged in users only -->
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-    crossorigin="anonymous"></script>
-</body>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"></script>
+  </body>
 
 </html>
