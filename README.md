@@ -7,11 +7,10 @@
 [The Tech-Blog](https://)
 
 ## Description
-  
+
 As anyone who has read online technical documentation can tell you, keeping up with your written communication skills is an essential part of becoming a successful web developer. Blogs are not only an excellent way to stay in practice, but offer a forum to discuss ideas with other developers and to keep up on the latest vernacular, syntax and coding developments. <br />
 
-This CMS-style blog-site provides that opportunity with its ability to publish your articles, blogsposts, thoughts and opinions. 
-
+This CMS-style blog-site provides that opportunity with its ability to publish your articles, blogsposts, thoughts and opinions.
 
 ## Usage
 
@@ -41,9 +40,7 @@ Once updated (or deleted), you will be directed back to your dashboard and can s
 
 ## License
 
-
 This project is covered under the [MIT License](https://opensource.org/licenses/MIT).
-
 
 ## Questions
 
