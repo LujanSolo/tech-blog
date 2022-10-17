@@ -20,7 +20,7 @@ At the homepage, click on LOGIN and enter your name and password.<br />
 If this is your first time using the site, click on SIGN UP INTEAD and fill out the fields on that page. <br />
 ![sign-in screen](./assets/images/tech-blog3.png) <br />
 
-Once signed in, you may navigate back to the homepage to read and comment on other posts, and you can now see the option to <i> logout </i> <br />
+Once signed in, you may navigate back to the homepage to read and comment on other posts, and you can now see the option to <i> logout: </i> <br />
 ![homepage screen](./assets/images/tech-blog1.png) <br />
 
 ![post with comments screen](./assets/images/tech-blog10.png) <br />
