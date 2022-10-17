@@ -3,14 +3,19 @@ html {
   font-size: 62.5%;
 }
 
+:root {
+  --base-color: rgb(0, 0, 0);
+  --secondary-color: white;
+}
+
 .body-container {
-  background-color :rgb(209, 245, 253);
+  background-color :rgb(255, 239, 186);
 }
 
 /* *NAVBAR SECTION* */
 #nav-container {
   display: block;
-  background-color: rgb(98, 0, 184);
+  background-color: var(--base-color);
   padding: 2%;
 }
 .navbar, .nav-link {
@@ -25,42 +30,52 @@ html {
 }
 
 
-/* *HOMEPAGE POSTS* */
-.homepost-container {
+.homepost-container,
+.comment-post-container,
+.comment-container,
+.add-comment-container {
   border-style: solid;
-  border-color:rgb(98, 0, 184);
+  border-color:var(--base-color);
   margin-bottom: 1.5rem;
+  max-width: 100%;
 }
-.homepost-header {
+.homepost-header,
+.comment-post-header,
+.comment-header {
   display: flex;
   justify-content: space-between;
   height: 3rem;
   line-height: 3rem;
-  background-color: rgb(98, 0, 184);
+  background-color: var(--base-color);
 }
-.homepost-title {
+.homepost-title,
+.comment-post-title {
   text-align: left;
-  color:rgb(209, 245, 253);
+  color:var(--secondary-color);
   text-decoration: none;
   height: 3rem;
   line-height: 3rem;
 }
-.homepost-author {
-  color:rgb(209, 245, 253);
+.homepost-author,
+.comment-post-author,
+.comment-author {
+  color:var(--secondary-color);
   text-align: right;
   height: 3rem;
   line-height: 3rem;
 }
-.homepost-content {
+.homepost-content,
+.comment-post-content,
+.comment-content {
   padding-top: .5rem;
   display: flex;
   text-align: justify;
-  color:rgb(98, 0, 184);
+  color:var(--base-color);
   font-size: 1.6rem;
 }
 
 
-/* *DASHBOARD* */
+/* *DASHBOARD SECTION* */
 .dash-post,
 .dash-title,
 .dash-date {
@@ -78,6 +93,13 @@ html {
 }
 
 
+/* *POSTS W/ COMMENTS SECTION* */
+.post-comment-title {
+
+}
+
+
+
 /* *BUTTONS* */
 #signup-btn,
 #login-btn,
@@ -90,13 +112,13 @@ html {
   border: none;
   padding: 0;
   cursor: pointer;
-  color: #1b89bc;
+  color: #c6eafb;
   text-decoration: none;
   font-size: 100%;
 }
 
 .no-button:hover {
-  color: #832306;
+  color: #fce0d8;
   text-decoration: underline;
 }
 

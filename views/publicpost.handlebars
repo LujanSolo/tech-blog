@@ -1,50 +1,45 @@
-<div class="post-container">
-  <div class="post-form">
-    <label for="post-title">
-      Title:
-    </label>
-    <br />
-    <div id="post-title" name="post-title">
+<div class="row comment-post-container">
+  <div class="comment-post-header" id="post-title" name="post-title">
+    <h4 class="comment-post-title">
       {{title}}
-    </div>
-    <br />
-    <label for="post-content">
-      Content:
-    </label>
-    <br />
-    <div id="post-content" name="post-content">
-      {{content}}
-    </div>
-    <br />
-    <br />
-    {{!-- {{log comments}} --}}
-    {{#if comments.length}}
-    <div id="comments-div" class="col-md-6 comment-list">
-      {{#each comments as |comment|}}
-      <div class="row mb-2">
-        <p>{{comment.comment}}</p>
-      </div>
-      {{/each}}
-    </div>
-    {{/if}}
+    </h4>
+    <p class="comment-post-author">Created by {{user.username}} on {{format_date date_created}}</p>
   </div>
+  <p class="comment-post-content" name="post-content">
+    {{content}}
+  </p>
 </div>
 
+{{#if comments.length}}
+<div class="comment-list-container">
+  {{#each comments as |comment|}}
 
-  <!-- This is the form for adding a new dish -->
-  <div class="add-comment-container">
-    <form class="new-comment-form">
-      <br />
-      <textarea id="comment" name="comment" rows="2" cols="30">
+  <div class="row comment-container">
+    <h4 class="comment-header">
+    <p class="comment-author">Posted by {{username}} </p>
+</h4>
+    <p class="comment-content">
+      {{comment.comment}}
+    </p>
+  </div>
+  {{/each}}
+</div>
+{{/if}}
+
+{{!-- *THIS IS WHERE THE USER WILL ADD THEIR COMMENT* --}}
+<div class="add-comment-container">
+  <form class="new-comment-form">
+    <br />
+    <textarea id="comment" name="comment" rows="2" cols="30">
       {{comment}}
     </textarea>
-      <br />
-      <br />
-      <button id="add-comment" type="submit" value="Submit">
-        + COMMENT
-      </button>
-    </form>
-  </div>
+    <br />
+    <br />
+    <button id="add-comment" type="submit" value="Submit">
+      + COMMENT
+    </button>
+  </form>
+</div>
 </div>
 
-    <script src="/js/addcomment.js"></script>
+<script src="/js/addcomment.js"></script>
