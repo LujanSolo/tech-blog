@@ -1,12 +1,12 @@
 <!-- Loop over each object in the notes array -->
 {{#each posts as |post| }}
-<div class="row post-container">
+<div class="row homepost-container">
  
-    <div class="post-header">
-      <a class="post-title" href="/comments/{{post.id}}">{{post.title}}</a></h2>
-      <p class="post-author">Created by {{user.username}} on {{format_date post.date_created}}</p>
+    <div class="homepost-header">
+      <a class="homepost-title" href="/comments/{{post.id}}">{{post.title}}</a></h2>
+      <p class="homepost-author">Created by {{user.username}} on {{format_date post.date_created}}</p>
     </div>
-    <p class="post-content">
+    <p class="homepost-content">
       {{post.content}}
     </p>
 

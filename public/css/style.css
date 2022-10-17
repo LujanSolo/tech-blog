@@ -26,32 +26,32 @@ html {
 
 
 /* *HOMEPAGE POSTS* */
-.post-container {
+.homepost-container {
   border-style: solid;
   border-color:rgb(98, 0, 184);
   margin-bottom: 1.5rem;
 }
-.post-header {
+.homepost-header {
   display: flex;
   justify-content: space-between;
   height: 3rem;
   line-height: 3rem;
   background-color: rgb(98, 0, 184);
 }
-.post-title {
+.homepost-title {
   text-align: left;
   color:rgb(209, 245, 253);
   text-decoration: none;
   height: 3rem;
   line-height: 3rem;
 }
-.post-author {
+.homepost-author {
   color:rgb(209, 245, 253);
   text-align: right;
   height: 3rem;
   line-height: 3rem;
 }
-.post-content {
+.homepost-content {
   padding-top: .5rem;
   display: flex;
   text-align: justify;
@@ -72,10 +72,16 @@ html {
   color: white;
 }
 
+.newpost-btn-div {
+  display: flex;
+  justify-content: center;
+}
+
 
 /* *BUTTONS* */
 #signup-btn,
-#login-btn {
+#login-btn,
+#newpost-btn {
   color: white;
 }
 
