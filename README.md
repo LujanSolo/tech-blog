@@ -4,7 +4,7 @@
 
 ## APP DEPLOYMENT LINK
 
-[The Tech-Blog](https://)
+[The Tech-Blog](https://fast-atoll-41188.herokuapp.com/)
 
 ## Description
 
