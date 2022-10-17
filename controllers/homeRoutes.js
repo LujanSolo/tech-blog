@@ -16,7 +16,6 @@ router.get('/', async (req, res) => {
     });
 
     const posts = postData.map((post) => post.get({ plain: true }))
-console.log(posts);
     res.render('homepage', {
       posts,
       logged_in: req.session.logged_in
@@ -76,8 +75,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
-// GET Route to homepage posts tagged with a unique ID
-//* route = http:localhost:3001/comments/:id (e.g. //* route = http:localhost:3001/comments/1)
+// GET Route to homepage posts tagged with a unique ID, pulls in Comments with user data, as well
 router.get('/comments/:id', withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -97,7 +95,6 @@ router.get('/comments/:id', withAuth, async (req, res) => {
     const post = postData.get({ plain: true });
 
     if (post) {
-console.log(post)
       res.render('publicpost', {
         ...post,
         logged_in: req.session.logged_in
@@ -112,7 +109,6 @@ console.log(post)
 
 //  GET all blogposts that belong to a specific user withAuth middleware to prevent access to route
 //  This is where the user can Update and Delete their posts
-//* route = http:localhost:3001/posts
 router.get('/posts/:id', withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -136,11 +132,8 @@ router.get('/posts/:id', withAuth, async (req, res) => {
 });
 
 // GET route to render the Newpost page
-//* route = http:localhost:3001/newpost
 router.get('/newpost', (req, res) => {
   // If the user is already logged in, redirect the request to another route
-  //! Don't need this here, as it only goes on the dashboard (logged in) page
-  //* so, what goes here instead? 
   if (!req.session.logged_in) {
     res.redirect('/login');
     return;

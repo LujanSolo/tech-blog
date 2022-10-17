@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// localhost:3001/api/comments
 router.post('/', withAuth, async (req, res) => {
   try {
     const commentData = await Comment.create({
@@ -11,7 +12,6 @@ router.post('/', withAuth, async (req, res) => {
     });
 
     res.status(200).json(commentData);
-    console.log(commentData)
   } catch (err) {
     res.status(400).json(err);
   }

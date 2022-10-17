@@ -16,9 +16,9 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+// localhost:3001/api/posts/:id
 router.put('/:id', withAuth, async (req, res) => {
   try {
-    console.log(req.body);
     const post = await Post.update(
       {
         title: req.body.title,
@@ -36,6 +36,7 @@ router.put('/:id', withAuth, async (req, res) => {
   }
 });
 
+// localhost:3001/api/posts/:id
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const postData = await Post.destroy({
