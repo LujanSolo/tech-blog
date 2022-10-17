@@ -1,14 +1,14 @@
 [
   {
-  "title": "To Do",
-  "content": "Walk dogs"  
+    "title": "To Do",
+    "content": "Walk dogs"
   },
   {
-  "title": "To Do123",
-  "content": "Walk dogs again"  
+    "title": "To Do123",
+    "content": "Walk dogs again"
   },
   {
     "title": "To Do12345",
-    "content": "Walk dogs for the last time today"  
-    }
+    "content": "Walk dogs for the last time today"
+  }
 ]

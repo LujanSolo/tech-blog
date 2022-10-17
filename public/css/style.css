@@ -41,6 +41,11 @@ html {
   max-width: 100%;
 }
 
+.comment-list-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .new-comment-container{
   display: flex;
   flex-direction: column;
