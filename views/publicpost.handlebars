@@ -16,8 +16,8 @@
 
   <div class="row comment-container">
     <h4 class="comment-header">
-    <p class="comment-author">Posted by {{username}} </p>
-</h4>
+      <p class="comment-author">Created by {{user.username}}</p>
+    </h4>
     <p class="comment-content">
       {{comment.comment}}
     </p>
@@ -27,19 +27,22 @@
 {{/if}}
 
 {{!-- *THIS IS WHERE THE USER WILL ADD THEIR COMMENT* --}}
+
+
 <div class="add-comment-container">
-  <form class="new-comment-form">
-    <br />
-    <textarea id="comment" name="comment" rows="2" cols="30">
+  <div class="new-comment-container">
+    <h4 class="new-comment-header"></h4>
+    <p class="new-comment-title">Comment</p>
+    <textarea class="p-2 ml-1 mr-1" id="comment" name="comment" rows="2" cols="100">
       {{comment}}
     </textarea>
-    <br />
-    <br />
-    <button id="add-comment" type="submit" value="Submit">
-      + COMMENT
-    </button>
-  </form>
+    <div class="add-comment-btn">
+      <button class="btn btn-primary" id="add-comment" type="submit" value="Submit">
+        + POST COMMENT
+      </button>
+    </div>
+  </div>
 </div>
-</div>
+
 
 <script src="/js/addcomment.js"></script>

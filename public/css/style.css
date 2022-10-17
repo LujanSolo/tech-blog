@@ -30,24 +30,35 @@ html {
 }
 
 
+/* *POSTS & COMMENTS STYLINGS* */
 .homepost-container,
 .comment-post-container,
 .comment-container,
-.add-comment-container {
+.new-comment-container {
   border-style: solid;
   border-color:var(--base-color);
   margin-bottom: 1.5rem;
   max-width: 100%;
 }
+
+.new-comment-container{
+  display: flex;
+  flex-direction: column;
+  margin-right: 2rem;
+  max-width: 100%;
+}
+
 .homepost-header,
 .comment-post-header,
-.comment-header {
+.comment-header,
+.new-comment-header {
   display: flex;
   justify-content: space-between;
   height: 3rem;
   line-height: 3rem;
   background-color: var(--base-color);
 }
+
 .homepost-title,
 .comment-post-title {
   text-align: left;
@@ -56,6 +67,7 @@ html {
   height: 3rem;
   line-height: 3rem;
 }
+
 .homepost-author,
 .comment-post-author,
 .comment-author {
@@ -64,10 +76,13 @@ html {
   height: 3rem;
   line-height: 3rem;
 }
+
 .homepost-content,
 .comment-post-content,
-.comment-content {
+.comment-content,
+.new-comment-title {
   padding-top: .5rem;
+  padding-left: .5rem;
   display: flex;
   text-align: justify;
   color:var(--base-color);
@@ -87,24 +102,22 @@ html {
   color: white;
 }
 
+/* *BUTTONS* */
 .newpost-btn-div {
   display: flex;
   justify-content: center;
 }
-
-
-/* *POSTS W/ COMMENTS SECTION* */
-.post-comment-title {
-
-}
-
-
-
-/* *BUTTONS* */
 #signup-btn,
 #login-btn,
-#newpost-btn {
+#newpost-btn,
+#add-comment {
   color: white;
+}
+
+.add-comment-btn {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
 }
 
 .no-button {
