@@ -1,44 +1,32 @@
-# tech-blog
+# TECH-BLOG
+
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
+## APP DEPLOYMENT LINK
+
+[The Tech-Blog](https://)
+
+## Description
+  
+As anyone who has read online technical documentation can tell you, keeping up with your written communication skills is an essential part of becoming a successful web developer. Blogs are not only an excellent way to stay in practice, but offer a forum to discuss ideas with other developers and to keep up on the latest vernacular, syntax and coding developments. <br />
+
+This CMS-style blog-site provides that opportunity with its ability to publish your articles, blogsposts, thoughts and opinions. 
 
 
-HOMEPAGE - existing BLOG posts (if any); NAVIGATION LINKS to HOMEPAGE and DASHBOARD, and LOGIN
+## Usage
 
-HOMEPAGE goes to HOMEPAGE, any other link REQUIRES LOGIN or SIGNUP w/ username and password (CREDENTIALS SAVED)
-<!-- create withAuth redirect -->
-
-LOGOUT option shows when logged in
-
-HOMEPAGE has POSTS with post TITLE and DATE CREATED
+At the homepage, click on LOGIN and enter your name and password. If this is your first time using the site, click on SIGN UP INTEAD and fill out the fields on that page. Once signed in, you may navigate back to the homepage to read and comment on other posts. If you click on DASHBOARD, you'll be taken to your personal dashboard where you can create, edit, and delete your posts.
 
 
-THEN my user credentials are saved and I am logged into the site
-WHEN I revisit the site at a later time and choose to sign in
-<!-- set TIMEOUT on cookies -->
 
-THEN I am prompted to enter my username and password
-WHEN I am signed in to the site
-THEN I see navigation links for the homepage, the dashboard, and the option to log out
+## License
 
-WHEN I click on the homepage option in the navigation
-THEN I am taken to the homepage and presented with existing blog posts that include the post title and the date created
 
-WHEN I click on an existing blog post
-THEN I am presented with the post title, contents, post creator’s username, and date created for that post and have the option to leave a comment
-WHEN I enter a comment and click on the submit button while signed in
-THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created
-WHEN I click on the dashboard option in the navigation
+This project is covered under the [MIT License](https://opensource.org/licenses/MIT).
 
-THEN I am taken to the dashboard and presented with any blog posts I have already created and the option to add a new blog post
-WHEN I click on the button to add a new blog post
 
-THEN I am prompted to enter both a title and contents for my blog post
-WHEN I click on the button to create a new blog post
+## Questions
 
-THEN the title and contents of my post are saved and I am taken back to an updated dashboard with my new blog post
-WHEN I click on one of my existing posts in the dashboard
-THEN I am able to delete or update my post and taken back to an updated dashboard
+GitHub profile: https://github.com/LujanSolo
 
-WHEN I click on the logout option in the navigation
-THEN I am signed out of the site
-WHEN I am idle on the site for more than a set time
-THEN I am able to view comments but I am prompted to log in again before I can add, update, or delete comments
+Contact me at lujansolo@proton.me for additional inquiries.
